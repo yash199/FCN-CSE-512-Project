@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:3000/ -->
+<html lang="en" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+          
+          <script src="./fantasypl_mobile_files/jquery-3.3.1.min.js.download" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+          <link rel="stylesheet" href="./fantasypl_mobile_files/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+          <link rel="stylesheet" href="./fantasypl_mobile_files/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+          <!-- Latest compiled and minified JavaScript -->
+          <script src="./fantasypl_mobile_files/bootstrap.min.js.download" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+          <!-- <script type="text/javascript" src="server.js"></script> -->
+          <script type="text/javascript" src="./fantasypl_mobile_files/loader.js.download"></script>
+
+          <title>Page Load time analyzer</title>
+          <!-- <style>
+          #myDIV {
+              width: 100%;
+              padding: 50px 0;
+              text-align: center;
+              background-color: lightblue;
+              margin-top: 20px;
+          }
+          </style> -->
+     <script type="text/javascript" charset="UTF-8" src="./fantasypl_mobile_files/loader.js(1).download"></script><link id="load-css-0" rel="stylesheet" type="text/css" href="./fantasypl_mobile_files/tooltip.css"><link id="load-css-1" rel="stylesheet" type="text/css" href="./fantasypl_mobile_files/util.css"><script type="text/javascript" charset="UTF-8" src="./fantasypl_mobile_files/jsapi_compiled_format_module.js.download"></script><script type="text/javascript" charset="UTF-8" src="./fantasypl_mobile_files/jsapi_compiled_default_module.js.download"></script><script type="text/javascript" charset="UTF-8" src="./fantasypl_mobile_files/jsapi_compiled_ui_module.js.download"></script><script type="text/javascript" charset="UTF-8" src="./fantasypl_mobile_files/jsapi_compiled_corechart_module.js.download"></script><script type="text/javascript" charset="UTF-8" src="./fantasypl_mobile_files/jsapi_compiled_fw_module.js.download"></script><script type="text/javascript" charset="UTF-8" src="./fantasypl_mobile_files/dygraph-tickers-combined.js.download"></script><script type="text/javascript" charset="UTF-8" src="./fantasypl_mobile_files/webfont.js.download"></script><script type="text/javascript" charset="UTF-8" src="./fantasypl_mobile_files/jsapi_compiled_bar_module.js.download"></script></head>
+     <body>
+          <div class="container">
+               <form action="http://localhost:3000/" method="post">
+                 <div class="form-group">
+                   <label for="inputUrl">Enter the URL</label>
+                   <input type="text" class="form-control" name="urlname" placeholder="Enter the url">
+                 </div>
+                 <button type="submit" class="btn btn-primary" onclick="myFunction()">Analyze</button>
+               </form>
+
+               <div id="myDIV">
+                    <div id="ld" style="display:none">5664</div>
+                    <div id="ttfb" style="display:none">584</div>
+                    <div id="str" style="display:none">2400</div>
+                    <div id="visComp" style="display:none">6500</div>
+                    <div id="fl" style="display:none">6217</div>
+                    <div id="ld_ad" style="display:none">5496</div>
+                    <div id="ttfb_ad" style="display:none">621</div>
+                    <div id="str_ad" style="display:none">1900</div>
+                    <div id="visComp_ad" style="display:none">5400</div>
+                    <div id="fl_ad" style="display:none">6027</div>
+                    <div id="chart_div"><div style="position: relative;"><div dir="ltr" style="position: relative; width: 1140px; height: 200px;"><div aria-label="A chart." style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%;"><svg width="1140" height="200" aria-label="A chart." style="overflow: hidden;"><defs id="defs"><lineargradient id="_ABSTRACT_RENDERER_ID_0" x1="0%" y1="0%" x2="100%" y2="100%" gradientUnits="userSpaceOnUse"><stop offset="0%" style="stop-color:#f3e5f5;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#f3e5f5;stop-opacity:1"></stop></lineargradient><clippath id="_ABSTRACT_RENDERER_ID_1"><rect x="285" y="38" width="570" height="124"></rect></clippath></defs><rect x="0" y="0" width="1140" height="200" stroke="none" stroke-width="0" fill="#ffffff"></rect><g><text text-anchor="start" x="285" y="23.9" font-family="Arial" font-size="14" font-weight="bold" stroke="none" stroke-width="0" fill="#000000">Summary of Various Metrics</text><rect x="285" y="12" width="570" height="14" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect></g><g><rect x="869" y="38" width="257" height="37" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><rect x="869" y="38" width="257" height="14" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><text text-anchor="start" x="902" y="49.9" font-family="Arial" font-size="14" stroke="none" stroke-width="0" fill="#222222">Mobile (Adblock)</text></g><rect x="869" y="38" width="28" height="14" stroke="none" stroke-width="0" fill="#3366cc"></rect></g><g><rect x="869" y="61" width="257" height="14" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><text text-anchor="start" x="902" y="72.9" font-family="Arial" font-size="14" stroke="none" stroke-width="0" fill="#222222">Mobile (Standard)</text></g><rect x="869" y="61" width="28" height="14" stroke="none" stroke-width="0" fill="#dc3912"></rect></g></g><g><rect x="285" y="38" width="570" height="124" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g clip-path="url(http://localhost:3000/#_ABSTRACT_RENDERER_ID_1)"><g><rect x="285" y="38" width="1" height="124" stroke="none" stroke-width="0" fill="#cccccc"></rect><rect x="427" y="38" width="1" height="124" stroke="none" stroke-width="0" fill="#cccccc"></rect><rect x="570" y="38" width="1" height="124" stroke="none" stroke-width="0" fill="#cccccc"></rect><rect x="712" y="38" width="1" height="124" stroke="none" stroke-width="0" fill="#cccccc"></rect><rect x="854" y="38" width="1" height="124" stroke="none" stroke-width="0" fill="#cccccc"></rect></g><g><rect x="286" y="43" width="402" height="7" stroke="none" stroke-width="0" fill="#3366cc"></rect><rect x="286" y="68" width="41" height="7" stroke="none" stroke-width="0" fill="#3366cc"></rect><rect x="286" y="92" width="170" height="8" stroke="none" stroke-width="0" fill="#3366cc"></rect><rect x="286" y="117" width="461" height="7" stroke="none" stroke-width="0" fill="#3366cc"></rect><rect x="286" y="142" width="441" height="7" stroke="none" stroke-width="0" fill="#3366cc"></rect><rect x="286" y="51" width="390" height="7" stroke="none" stroke-width="0" fill="#dc3912"></rect><rect x="286" y="76" width="43" height="7" stroke="none" stroke-width="0" fill="#dc3912"></rect><rect x="286" y="101" width="134" height="7" stroke="none" stroke-width="0" fill="#dc3912"></rect><rect x="286" y="125" width="383" height="7" stroke="none" stroke-width="0" fill="#dc3912"></rect><rect x="286" y="150" width="428" height="7" stroke="none" stroke-width="0" fill="#dc3912"></rect></g><g><rect x="285" y="38" width="1" height="124" stroke="none" stroke-width="0" fill="#333333"></rect></g><g><rect x="688" y="46" width="12" height="1" stroke="none" stroke-width="0" fill="#999999"></rect><rect x="327" y="71" width="12" height="1" stroke="none" stroke-width="0" fill="#999999"></rect><rect x="456" y="96" width="12" height="1" stroke="none" stroke-width="0" fill="#999999"></rect><rect x="747" y="120" width="12" height="1" stroke="none" stroke-width="0" fill="#999999"></rect><rect x="727" y="145" width="12" height="1" stroke="none" stroke-width="0" fill="#999999"></rect><rect x="676" y="54" width="12" height="1" stroke="none" stroke-width="0" fill="#999999"></rect><rect x="329" y="79" width="12" height="1" stroke="none" stroke-width="0" fill="#999999"></rect><rect x="420" y="104" width="12" height="1" stroke="none" stroke-width="0" fill="#999999"></rect><rect x="669" y="128" width="12" height="1" stroke="none" stroke-width="0" fill="#999999"></rect><rect x="714" y="153" width="12" height="1" stroke="none" stroke-width="0" fill="#999999"></rect></g></g><g></g><g><g><text text-anchor="middle" x="285.5" y="177.23333333333335" font-family="Arial" font-size="14" stroke="none" stroke-width="0" fill="#444444">0</text></g><g><text text-anchor="middle" x="427.75" y="177.23333333333335" font-family="Arial" font-size="14" stroke="none" stroke-width="0" fill="#444444">2,000</text></g><g><text text-anchor="middle" x="570" y="177.23333333333335" font-family="Arial" font-size="14" stroke="none" stroke-width="0" fill="#444444">4,000</text></g><g><text text-anchor="middle" x="712.25" y="177.23333333333335" font-family="Arial" font-size="14" stroke="none" stroke-width="0" fill="#444444">6,000</text></g><g><text text-anchor="middle" x="854.5" y="177.23333333333335" font-family="Arial" font-size="14" stroke="none" stroke-width="0" fill="#444444">8,000</text></g><g><text text-anchor="end" x="271" y="55.699999999999996" font-family="Arial" font-size="14" stroke="none" stroke-width="0" fill="#222222">Load Time</text></g><g><text text-anchor="end" x="271" y="80.30000000000001" font-family="Arial" font-size="14" stroke="none" stroke-width="0" fill="#222222">First Byte</text></g><g><text text-anchor="end" x="271" y="104.9" font-family="Arial" font-size="14" stroke="none" stroke-width="0" fill="#222222">Start Render</text></g><g><text text-anchor="end" x="271" y="129.5" font-family="Arial" font-size="14" stroke="none" stroke-width="0" fill="#222222">Visually Complete</text></g><g><text text-anchor="end" x="271" y="154.1" font-family="Arial" font-size="14" stroke="none" stroke-width="0" fill="#222222">Fully Loaded</text></g></g><g><g><g><rect x="697.5" y="39.5" width="32" height="14" stroke="#cccccc" stroke-width="1" fill="url(http://localhost:3000/#_ABSTRACT_RENDERER_ID_0)"></rect><text text-anchor="start" x="700" y="50.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#555555">5664</text><rect x="700" y="40" width="26" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect></g></g><g><g><rect x="336.5" y="64.5" width="26" height="14" stroke="#cccccc" stroke-width="1" fill="url(http://localhost:3000/#_ABSTRACT_RENDERER_ID_0)"></rect><text text-anchor="start" x="339" y="75.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#555555">584</text><rect x="339" y="65" width="20" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect></g></g><g><g><rect x="465.5" y="89.5" width="32" height="14" stroke="#cccccc" stroke-width="1" fill="url(http://localhost:3000/#_ABSTRACT_RENDERER_ID_0)"></rect><text text-anchor="start" x="468" y="100.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#555555">2400</text><rect x="468" y="90" width="26" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect></g></g><g><g><rect x="756.5" y="113.5" width="32" height="14" stroke="#cccccc" stroke-width="1" fill="url(http://localhost:3000/#_ABSTRACT_RENDERER_ID_0)"></rect><text text-anchor="start" x="759" y="124.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#555555">6500</text><rect x="759" y="114" width="26" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect></g></g><g><g><rect x="736.5" y="138.5" width="32" height="14" stroke="#cccccc" stroke-width="1" fill="url(http://localhost:3000/#_ABSTRACT_RENDERER_ID_0)"></rect><text text-anchor="start" x="739" y="149.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#555555">6217</text><rect x="739" y="139" width="26" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect></g></g><g><g><rect x="685.5" y="47.5" width="32" height="14" stroke="#cccccc" stroke-width="1" fill="url(http://localhost:3000/#_ABSTRACT_RENDERER_ID_0)"></rect><text text-anchor="start" x="688" y="58.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#555555">5496</text><rect x="688" y="48" width="26" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect></g></g><g><g><rect x="338.5" y="72.5" width="26" height="14" stroke="#cccccc" stroke-width="1" fill="url(http://localhost:3000/#_ABSTRACT_RENDERER_ID_0)"></rect><text text-anchor="start" x="341" y="83.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#555555">621</text><rect x="341" y="73" width="20" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect></g></g><g><g><rect x="429.5" y="97.5" width="32" height="14" stroke="#cccccc" stroke-width="1" fill="url(http://localhost:3000/#_ABSTRACT_RENDERER_ID_0)"></rect><text text-anchor="start" x="432" y="108.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#555555">1900</text><rect x="432" y="98" width="26" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect></g></g><g><g><rect x="678.5" y="121.5" width="32" height="14" stroke="#cccccc" stroke-width="1" fill="url(http://localhost:3000/#_ABSTRACT_RENDERER_ID_0)"></rect><text text-anchor="start" x="681" y="132.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#555555">5400</text><rect x="681" y="122" width="26" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect></g></g><g><g><rect x="723.5" y="146.5" width="32" height="14" stroke="#cccccc" stroke-width="1" fill="url(http://localhost:3000/#_ABSTRACT_RENDERER_ID_0)"></rect><text text-anchor="start" x="726" y="157.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#555555">6027</text><rect x="726" y="147" width="26" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect></g></g></g></g><g><g><text text-anchor="middle" x="570" y="194.5666666666667" font-family="Arial" font-size="14" font-style="italic" stroke="none" stroke-width="0" fill="#222222">Time in milliseconds</text><rect x="285" y="182.66666666666669" width="570" height="14" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect></g><g><text text-anchor="middle" x="84.9" y="100" font-family="Arial" font-size="14" font-style="italic" transform="rotate(-90 84.9 100)" stroke="none" stroke-width="0" fill="#222222">Metrics</text><path d="M72.99999999999999,162L73,38.00000000000001L87,38.00000000000001L86.99999999999999,162Z" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></path></g></g><g></g></svg><div aria-label="A tabular representation of the data in the chart." style="position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden;"><table><thead><tr><th>Summary</th><th>Mobile (Adblock)</th><th>Mobile (Standard)</th></tr></thead><tbody><tr><td>Load Time</td><td>5,664</td><td>5,496</td></tr><tr><td>First Byte</td><td>584</td><td>621</td></tr><tr><td>Start Render</td><td>2,400</td><td>1,900</td></tr><tr><td>Visually Complete</td><td>6,500</td><td>5,400</td></tr><tr><td>Fully Loaded</td><td>6,217</td><td>6,027</td></tr></tbody></table></div></div></div><div aria-hidden="true" style="display: none; position: absolute; top: 210px; left: 1150px; white-space: nowrap; font-family: Arial; font-size: 14px;">Mobile (Standard)</div><div></div></div></div>
+               </div>
+
+               <div id="myDIV_1">
+                    <div id="bytes_in_doc" style="display:none">1163878</div>
+                    <div id="req_docs" style="display:none">27</div>
+                    <div id="doctime" style="display:none">5664</div>
+                    <div id="bytes_in_doc_ad" style="display:none">1375127</div>
+                    <div id="req_docs_ad" style="display:none">35</div>
+                    <div id="doctime_ad" style="display:none">5496</div>
+                    <div id="chart_div_1"><div style="position: relative;"><div dir="ltr" style="position: relative; width: 1140px; height: 200px;"><div aria-label="A chart." style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%;"><svg width="1140" height="200" aria-label="A chart." style="overflow: hidden;"><defs id="defs"><lineargradient id="_ABSTRACT_RENDERER_ID_2" x1="0%" y1="0%" x2="100%" y2="100%" gradientUnits="userSpaceOnUse"><stop offset="0%" style="stop-color:#f3e5f5;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#f3e5f5;stop-opacity:1"></stop></lineargradient><clippath id="_ABSTRACT_RENDERER_ID_3"><rect x="285" y="38" width="570" height="124"></rect></clippath></defs><rect x="0" y="0" width="1140" height="200" stroke="none" stroke-width="0" fill="#ffffff"></rect><g><text text-anchor="start" x="285" y="23.9" font-family="Arial" font-size="14" font-weight="bold" stroke="none" stroke-width="0" fill="#000000">Document Complete Metrics</text><rect x="285" y="12" width="570" height="14" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect></g><g><rect x="869" y="38" width="257" height="37" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><rect x="869" y="38" width="257" height="14" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><text text-anchor="start" x="902" y="49.9" font-family="Arial" font-size="14" stroke="none" stroke-width="0" fill="#222222">Mobile (Adblock)</text></g><rect x="869" y="38" width="28" height="14" stroke="none" stroke-width="0" fill="#3366cc"></rect></g><g><rect x="869" y="61" width="257" height="14" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><text text-anchor="start" x="902" y="72.9" font-family="Arial" font-size="14" stroke="none" stroke-width="0" fill="#222222">Mobile (Standard)</text></g><rect x="869" y="61" width="28" height="14" stroke="none" stroke-width="0" fill="#dc3912"></rect></g></g><g><rect x="285" y="38" width="570" height="124" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g clip-path="url(http://localhost:3000/#_ABSTRACT_RENDERER_ID_3)"><g><rect x="285" y="38" width="1" height="124" stroke="none" stroke-width="0" fill="#cccccc"></rect><rect x="427" y="38" width="1" height="124" stroke="none" stroke-width="0" fill="#cccccc"></rect><rect x="570" y="38" width="1" height="124" stroke="none" stroke-width="0" fill="#cccccc"></rect><rect x="712" y="38" width="1" height="124" stroke="none" stroke-width="0" fill="#cccccc"></rect><rect x="854" y="38" width="1" height="124" stroke="none" stroke-width="0" fill="#cccccc"></rect></g><g><rect x="286" y="46" width="536" height="13" stroke="none" stroke-width="0" fill="#3366cc"></rect><rect x="286" y="87" width="2" height="12" stroke="none" stroke-width="0" fill="#3366cc"></rect><rect x="286" y="128" width="107" height="13" stroke="none" stroke-width="0" fill="#3366cc"></rect><rect x="286" y="59" width="520" height="13" stroke="none" stroke-width="0" fill="#dc3912"></rect><rect x="286" y="101" width="2" height="12" stroke="none" stroke-width="0" fill="#dc3912"></rect><rect x="286" y="142" width="126" height="12" stroke="none" stroke-width="0" fill="#dc3912"></rect></g><g><rect x="285" y="38" width="1" height="124" stroke="none" stroke-width="0" fill="#333333"></rect></g><g><rect x="822" y="52" width="12" height="1" stroke="none" stroke-width="0" fill="#999999"></rect><rect x="288" y="93" width="12" height="1" stroke="none" stroke-width="0" fill="#999999"></rect><rect x="393" y="134" width="12" height="1" stroke="none" stroke-width="0" fill="#999999"></rect><rect x="806" y="65" width="12" height="1" stroke="none" stroke-width="0" fill="#999999"></rect><rect x="288" y="107" width="12" height="1" stroke="none" stroke-width="0" fill="#999999"></rect><rect x="412" y="148" width="12" height="1" stroke="none" stroke-width="0" fill="#999999"></rect></g></g><g></g><g><g><text text-anchor="middle" x="285.5" y="182.9" font-family="Arial" font-size="14" stroke="none" stroke-width="0" fill="#444444">0</text></g><g><text text-anchor="middle" x="427.75" y="182.9" font-family="Arial" font-size="14" stroke="none" stroke-width="0" fill="#444444">1,500</text></g><g><text text-anchor="middle" x="570" y="182.9" font-family="Arial" font-size="14" stroke="none" stroke-width="0" fill="#444444">3,000</text></g><g><text text-anchor="middle" x="712.25" y="182.9" font-family="Arial" font-size="14" stroke="none" stroke-width="0" fill="#444444">4,500</text></g><g><text text-anchor="middle" x="854.5" y="182.9" font-family="Arial" font-size="14" stroke="none" stroke-width="0" fill="#444444">6,000</text></g><g><text text-anchor="end" x="271" y="63.9" font-family="Arial" font-size="14" stroke="none" stroke-width="0" fill="#222222">Document Load time in ms</text></g><g><text text-anchor="end" x="271" y="104.9" font-family="Arial" font-size="14" stroke="none" stroke-width="0" fill="#222222">Requests</text></g><g><text text-anchor="end" x="271" y="145.9" font-family="Arial" font-size="14" stroke="none" stroke-width="0" fill="#222222">Bytes in KB</text></g></g><g><g><g><rect x="831.5" y="45.5" width="32" height="14" stroke="#cccccc" stroke-width="1" fill="url(http://localhost:3000/#_ABSTRACT_RENDERER_ID_2)"></rect><text text-anchor="start" x="834" y="56.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#555555">5664</text><rect x="834" y="46" width="26" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect></g></g><g><g><rect x="297.5" y="86.5" width="19" height="14" stroke="#cccccc" stroke-width="1" fill="url(http://localhost:3000/#_ABSTRACT_RENDERER_ID_2)"></rect><text text-anchor="start" x="300" y="97.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#555555">27</text><rect x="300" y="87" width="13" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect></g></g><g><g><rect x="402.5" y="127.5" width="52" height="14" stroke="#cccccc" stroke-width="1" fill="url(http://localhost:3000/#_ABSTRACT_RENDERER_ID_2)"></rect><text text-anchor="start" x="405" y="138.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#555555">1163878</text><rect x="405" y="128" width="46" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect></g></g><g><g><rect x="815.5" y="58.5" width="32" height="14" stroke="#cccccc" stroke-width="1" fill="url(http://localhost:3000/#_ABSTRACT_RENDERER_ID_2)"></rect><text text-anchor="start" x="818" y="69.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#555555">5496</text><rect x="818" y="59" width="26" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect></g></g><g><g><rect x="297.5" y="100.5" width="19" height="14" stroke="#cccccc" stroke-width="1" fill="url(http://localhost:3000/#_ABSTRACT_RENDERER_ID_2)"></rect><text text-anchor="start" x="300" y="111.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#555555">35</text><rect x="300" y="101" width="13" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect></g></g><g><g><rect x="421.5" y="141.5" width="52" height="14" stroke="#cccccc" stroke-width="1" fill="url(http://localhost:3000/#_ABSTRACT_RENDERER_ID_2)"></rect><text text-anchor="start" x="424" y="152.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#555555">1375127</text><rect x="424" y="142" width="46" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect></g></g></g></g><g><g><text text-anchor="middle" x="57.4" y="100" font-family="Arial" font-size="14" font-style="italic" transform="rotate(-90 57.4 100)" stroke="none" stroke-width="0" fill="#222222">Metrics</text><path d="M45.5,162L45.50000000000001,38L59.50000000000001,38.00000000000001L59.5,162Z" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></path></g></g><g></g></svg><div aria-label="A tabular representation of the data in the chart." style="position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden;"><table><thead><tr><th>Document Complete</th><th>Mobile (Adblock)</th><th>Mobile (Standard)</th></tr></thead><tbody><tr><td>Document Load time in ms</td><td>5,664</td><td>5,496</td></tr><tr><td>Requests</td><td>27</td><td>35</td></tr><tr><td>Bytes in KB</td><td>1,136.6</td><td>1,342.897</td></tr></tbody></table></div></div></div><div aria-hidden="true" style="display: none; position: absolute; top: 210px; left: 1150px; white-space: nowrap; font-family: Arial; font-size: 14px;">Mobile (Standard)</div><div></div></div></div>
+               </div>
+
+               <div id="myDIV_2">
+                    <div id="bytes_in" style="display:none">1163878</div>
+                    <div id="req" style="display:none">29</div>
+                    <div id="fulltime" style="display:none">6217</div>
+                    <div id="bytes_in_ad" style="display:none">1385313</div>
+                    <div id="req_ad" style="display:none">41</div>
+                    <div id="fulltime_ad" style="display:none">6027</div>
+                    <div id="chart_div_2"><div style="position: relative;"><div dir="ltr" style="position: relative; width: 1140px; height: 200px;"><div aria-label="A chart." style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%;"><svg width="1140" height="200" aria-label="A chart." style="overflow: hidden;"><defs id="defs"><lineargradient id="_ABSTRACT_RENDERER_ID_4" x1="0%" y1="0%" x2="100%" y2="100%" gradientUnits="userSpaceOnUse"><stop offset="0%" style="stop-color:#f3e5f5;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#f3e5f5;stop-opacity:1"></stop></lineargradient><clippath id="_ABSTRACT_RENDERER_ID_5"><rect x="285" y="38" width="570" height="124"></rect></clippath></defs><rect x="0" y="0" width="1140" height="200" stroke="none" stroke-width="0" fill="#ffffff"></rect><g><text text-anchor="start" x="285" y="23.9" font-family="Arial" font-size="14" font-weight="bold" stroke="none" stroke-width="0" fill="#000000">Full Page Load Complete Metrics</text><rect x="285" y="12" width="570" height="14" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect></g><g><rect x="869" y="38" width="257" height="37" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><rect x="869" y="38" width="257" height="14" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><text text-anchor="start" x="902" y="49.9" font-family="Arial" font-size="14" stroke="none" stroke-width="0" fill="#222222">Mobile (Adblock)</text></g><rect x="869" y="38" width="28" height="14" stroke="none" stroke-width="0" fill="#3366cc"></rect></g><g><rect x="869" y="61" width="257" height="14" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><text text-anchor="start" x="902" y="72.9" font-family="Arial" font-size="14" stroke="none" stroke-width="0" fill="#222222">Mobile (Standard)</text></g><rect x="869" y="61" width="28" height="14" stroke="none" stroke-width="0" fill="#dc3912"></rect></g></g><g><rect x="285" y="38" width="570" height="124" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g clip-path="url(http://localhost:3000/#_ABSTRACT_RENDERER_ID_5)"><g><rect x="285" y="38" width="1" height="124" stroke="none" stroke-width="0" fill="#cccccc"></rect><rect x="427" y="38" width="1" height="124" stroke="none" stroke-width="0" fill="#cccccc"></rect><rect x="570" y="38" width="1" height="124" stroke="none" stroke-width="0" fill="#cccccc"></rect><rect x="712" y="38" width="1" height="124" stroke="none" stroke-width="0" fill="#cccccc"></rect><rect x="854" y="38" width="1" height="124" stroke="none" stroke-width="0" fill="#cccccc"></rect></g><g><rect x="286" y="46" width="441" height="13" stroke="none" stroke-width="0" fill="#3366cc"></rect><rect x="285.912525" y="87" width="1.650100000000009" height="12" stroke="none" stroke-width="0" fill="#3366cc"></rect><rect x="286" y="128" width="80" height="13" stroke="none" stroke-width="0" fill="#3366cc"></rect><rect x="286" y="59" width="428" height="13" stroke="none" stroke-width="0" fill="#dc3912"></rect><rect x="286" y="101" width="2" height="12" stroke="none" stroke-width="0" fill="#dc3912"></rect><rect x="286" y="142" width="95" height="12" stroke="none" stroke-width="0" fill="#dc3912"></rect></g><g><rect x="285" y="38" width="1" height="124" stroke="none" stroke-width="0" fill="#333333"></rect></g><g><rect x="727" y="52" width="12" height="1" stroke="none" stroke-width="0" fill="#999999"></rect><rect x="287.562625" y="93" width="12" height="1" stroke="none" stroke-width="0" fill="#999999"></rect><rect x="366" y="134" width="12" height="1" stroke="none" stroke-width="0" fill="#999999"></rect><rect x="714" y="65" width="12" height="1" stroke="none" stroke-width="0" fill="#999999"></rect><rect x="288" y="107" width="12" height="1" stroke="none" stroke-width="0" fill="#999999"></rect><rect x="381" y="148" width="12" height="1" stroke="none" stroke-width="0" fill="#999999"></rect></g></g><g></g><g><g><text text-anchor="middle" x="285.5" y="182.9" font-family="Arial" font-size="14" stroke="none" stroke-width="0" fill="#444444">0</text></g><g><text text-anchor="middle" x="427.75" y="182.9" font-family="Arial" font-size="14" stroke="none" stroke-width="0" fill="#444444">2,000</text></g><g><text text-anchor="middle" x="570" y="182.9" font-family="Arial" font-size="14" stroke="none" stroke-width="0" fill="#444444">4,000</text></g><g><text text-anchor="middle" x="712.25" y="182.9" font-family="Arial" font-size="14" stroke="none" stroke-width="0" fill="#444444">6,000</text></g><g><text text-anchor="middle" x="854.5" y="182.9" font-family="Arial" font-size="14" stroke="none" stroke-width="0" fill="#444444">8,000</text></g><g><text text-anchor="end" x="271" y="63.9" font-family="Arial" font-size="14" stroke="none" stroke-width="0" fill="#222222">Full Load time in ms</text></g><g><text text-anchor="end" x="271" y="104.9" font-family="Arial" font-size="14" stroke="none" stroke-width="0" fill="#222222">Requests</text></g><g><text text-anchor="end" x="271" y="145.9" font-family="Arial" font-size="14" stroke="none" stroke-width="0" fill="#222222">Bytes in KB</text></g></g><g><g><g><rect x="736.5" y="45.5" width="32" height="14" stroke="#cccccc" stroke-width="1" fill="url(http://localhost:3000/#_ABSTRACT_RENDERER_ID_4)"></rect><text text-anchor="start" x="739" y="56.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#555555">6217</text><rect x="739" y="46" width="26" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect></g></g><g><g><rect x="297.5" y="86.5" width="18" height="14" stroke="#cccccc" stroke-width="1" fill="url(http://localhost:3000/#_ABSTRACT_RENDERER_ID_4)"></rect><text text-anchor="start" x="299.562625" y="97.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#555555">29</text><rect x="299.562625" y="87" width="13" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect></g></g><g><g><rect x="375.5" y="127.5" width="52" height="14" stroke="#cccccc" stroke-width="1" fill="url(http://localhost:3000/#_ABSTRACT_RENDERER_ID_4)"></rect><text text-anchor="start" x="378" y="138.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#555555">1163878</text><rect x="378" y="128" width="46" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect></g></g><g><g><rect x="723.5" y="58.5" width="32" height="14" stroke="#cccccc" stroke-width="1" fill="url(http://localhost:3000/#_ABSTRACT_RENDERER_ID_4)"></rect><text text-anchor="start" x="726" y="69.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#555555">6027</text><rect x="726" y="59" width="26" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect></g></g><g><g><rect x="297.5" y="100.5" width="19" height="14" stroke="#cccccc" stroke-width="1" fill="url(http://localhost:3000/#_ABSTRACT_RENDERER_ID_4)"></rect><text text-anchor="start" x="300" y="111.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#555555">41</text><rect x="300" y="101" width="13" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect></g></g><g><g><rect x="390.5" y="141.5" width="52" height="14" stroke="#cccccc" stroke-width="1" fill="url(http://localhost:3000/#_ABSTRACT_RENDERER_ID_4)"></rect><text text-anchor="start" x="393" y="152.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#555555">1385313</text><rect x="393" y="142" width="46" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect></g></g></g></g><g><g><text text-anchor="middle" x="77.9" y="100" font-family="Arial" font-size="14" font-style="italic" transform="rotate(-90 77.9 100)" stroke="none" stroke-width="0" fill="#222222">Metrics</text><path d="M65.99999999999999,162L66,38.00000000000001L80,38.00000000000001L79.99999999999999,162Z" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></path></g></g><g></g></svg><div aria-label="A tabular representation of the data in the chart." style="position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden;"><table><thead><tr><th>Page Load Complete</th><th>Mobile (Adblock)</th><th>Mobile (Standard)</th></tr></thead><tbody><tr><td>Full Load time in ms</td><td>6,217</td><td>6,027</td></tr><tr><td>Requests</td><td>29</td><td>41</td></tr><tr><td>Bytes in KB</td><td>1,136.6</td><td>1,352.845</td></tr></tbody></table></div></div></div><div aria-hidden="true" style="display: none; position: absolute; top: 210px; left: 1150px; white-space: nowrap; font-family: Arial; font-size: 14px;">Mobile (Standard)</div><div></div></div></div>
+
+                    <div id="html_req" style="display:none">7</div>
+     			<div id="js_req" style="display:none">8</div>
+     			<div id="css_req" style="display:none">1</div>
+     			<div id="image_req" style="display:none">13</div>
+     			<div id="flash_req" style="display:none">0</div>
+     			<div id="video_req" style="display:none">0</div>
+     			<div id="other_req" style="display:none">0</div>
+     			<div id="font_req" style="display:none">0</div>
+
+     			<div id="html_bytes" style="display:none">10285</div>
+     			<div id="js_bytes" style="display:none">303630</div>
+     			<div id="css_bytes" style="display:none">54009</div>
+     			<div id="image_bytes" style="display:none">795954</div>
+     			<div id="flash_bytes" style="display:none">0</div>
+     			<div id="video_bytes" style="display:none">0</div>
+     			<div id="other_bytes" style="display:none">0</div>
+     			<div id="font_bytes" style="display:none">0</div>
+
+     			<div id="html_req_ad" style="display:none">9</div>
+     			<div id="js_req_ad" style="display:none">10</div>
+     			<div id="css_req_ad" style="display:none">1</div>
+     			<div id="image_req_ad" style="display:none">19</div>
+     			<div id="flash_req_ad" style="display:none">0</div>
+     			<div id="video_req_ad" style="display:none">0</div>
+     			<div id="other_req_ad" style="display:none">1</div>
+     			<div id="font_req_ad" style="display:none">0</div>
+
+     			<div id="html_bytes_ad" style="display:none">48323</div>
+     			<div id="js_bytes_ad" style="display:none">363567</div>
+     			<div id="css_bytes_ad" style="display:none">54009</div>
+     			<div id="image_bytes_ad" style="display:none">911708</div>
+     			<div id="flash_bytes_ad" style="display:none">0</div>
+     			<div id="font_bytes_ad" style="display:none">0</div>
+     			<div id="video_bytes_ad" style="display:none">0</div>
+     			<div id="other_bytes_ad" style="display:none">408</div>
+
+     			<table class="columns">
+     			  <tbody><tr>
+     				<!--<td><div id="Sarah_chart_div" style="border: 1px solid #ccc"></div></td>
+     				<td><div id="Anthony_chart_div" style="border: 1px solid #ccc"></div></td>
+     			  -->
+     				<td><div id="piechart_ad" style="border: 1px solid #ccc; width: 540px; height: 300px;"><div style="position: relative;"><div dir="ltr" style="position: relative; width: 538px; height: 298px;"><div aria-label="A chart." style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%;"><svg width="538" height="298" aria-label="A chart." style="overflow: hidden;"><defs id="defs"></defs><rect x="0" y="0" width="538" height="298" stroke="none" stroke-width="0" fill="#ffffff"></rect><g><text text-anchor="start" x="96" y="36.2" font-family="Arial" font-size="12" font-weight="bold" stroke="none" stroke-width="0" fill="#000000">Requests by Resource type - Mobile (Standard)</text><rect x="96" y="26" width="347" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect></g><g><rect x="329" y="57" width="114" height="88" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g column-id="html"><rect x="329" y="57" width="114" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><text text-anchor="start" x="346" y="67.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#222222">html</text></g><circle cx="335" cy="63" r="6" stroke="none" stroke-width="0" fill="#3366cc"></circle></g><g column-id="js"><rect x="329" y="76" width="114" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><text text-anchor="start" x="346" y="86.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#222222">js</text></g><circle cx="335" cy="82" r="6" stroke="none" stroke-width="0" fill="#dc3912"></circle></g><g column-id="css"><rect x="329" y="95" width="114" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><text text-anchor="start" x="346" y="105.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#222222">css</text></g><circle cx="335" cy="101" r="6" stroke="none" stroke-width="0" fill="#ff9900"></circle></g><g column-id="image"><rect x="329" y="114" width="114" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><text text-anchor="start" x="346" y="124.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#222222">image</text></g><circle cx="335" cy="120" r="6" stroke="none" stroke-width="0" fill="#109618"></circle></g><g column-id="other"><rect x="329" y="133" width="114" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><text text-anchor="start" x="346" y="143.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#222222">other</text></g><circle cx="335" cy="139" r="6" stroke="none" stroke-width="0" fill="#66aa00"></circle></g></g><g><path d="M203,139.8L203,158.20000000000002L293.86732733475264,146.68642337303902L293.86732733475264,128.286423373039" stroke="#264d99" stroke-width="1" fill="#264d99"></path><path d="M203,139.8L203,66.2A92,73.60000000000001,0,0,1,293.86732733475264,128.286423373039L203,139.8A0,0,0,0,0,203,139.8" stroke="#3366cc" stroke-width="1" fill="#3366cc"></path><text text-anchor="start" x="246.81099291259306" y="101.7973543294248" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#ffffff">9</text></g><g><path d="M295,139.8L295,158.20000000000002A92,73.60000000000001,0,0,1,217.39197078370125,230.89386186780217L217.39197078370125,212.49386186780214A92,73.60000000000001,0,0,0,295,139.8" stroke="#a52b0e" stroke-width="1" fill="#a52b0e"></path><path d="M203,139.8L203,158.20000000000002L217.39197078370125,230.89386186780214L217.39197078370125,212.49386186780214" stroke="#a52b0e" stroke-width="1" fill="#a52b0e"></path><path d="M203,139.8L293.86732733475264,128.286423373039A92,73.60000000000001,0,0,1,217.39197078370125,212.49386186780214L203,139.8A0,0,0,0,0,203,139.8" stroke="#dc3912" stroke-width="1" fill="#dc3912"></path><text text-anchor="start" x="252.41014010883714" y="175.55796166585458" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#ffffff">10</text></g><g><path d="M203,139.8L203,158.20000000000002L188.60802921629875,85.50613813219786L188.60802921629875,67.10613813219787" stroke="#4d8000" stroke-width="1" fill="#4d8000"></path><path d="M203,139.8L188.60802921629875,67.10613813219787A92,73.60000000000001,0,0,1,203,66.2L203,139.8A0,0,0,0,0,203,139.8" stroke="#66aa00" stroke-width="1" fill="#66aa00"></path></g><g><path d="M203,213.40000000000003L203,231.80000000000004A92,73.60000000000001,0,0,1,111,158.20000000000002L111,139.8A92,73.60000000000001,0,0,0,203,213.40000000000003" stroke="#0c7112" stroke-width="1" fill="#0c7112"></path><path d="M203,139.8L203,213.40000000000003A92,73.60000000000001,0,0,1,188.60802921629875,67.10613813219787L203,139.8A0,0,0,0,0,203,139.8" stroke="#109618" stroke-width="1" fill="#109618"></path><text text-anchor="start" x="124.13837692263252" y="148.35483694135974" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#ffffff">19</text></g><g><path d="M217.39197078370125,212.49386186780214L217.39197078370125,230.89386186780214A92,73.60000000000001,0,0,1,203,231.8L203,213.40000000000003A92,73.60000000000001,0,0,0,217.39197078370125,212.49386186780214" stroke="#bf7300" stroke-width="1" fill="#bf7300"></path><path d="M203,139.8L217.39197078370125,212.49386186780214A92,73.60000000000001,0,0,1,203,213.40000000000003L203,139.8A0,0,0,0,0,203,139.8" stroke="#ff9900" stroke-width="1" fill="#ff9900"></path></g><g></g></svg><div aria-label="A tabular representation of the data in the chart." style="position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden;"><table><thead><tr><th>MIME Type</th><th>Number of Requests</th></tr></thead><tbody><tr><td>html</td><td>9</td></tr><tr><td>js</td><td>10</td></tr><tr><td>css</td><td>1</td></tr><tr><td>image</td><td>19</td></tr><tr><td>flash</td><td>0</td></tr><tr><td>font</td><td>0</td></tr><tr><td>video</td><td>0</td></tr><tr><td>other</td><td>1</td></tr></tbody></table></div></div></div><div aria-hidden="true" style="display: none; position: absolute; top: 308px; left: 548px; white-space: nowrap; font-family: Arial; font-size: 12px;">other</div><div></div></div></div></td>
+     				<td><div id="piechart" style="border: 1px solid #ccc; width: 540px; height: 300px;"><div style="position: relative;"><div dir="ltr" style="position: relative; width: 538px; height: 298px;"><div aria-label="A chart." style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%;"><svg width="538" height="298" aria-label="A chart." style="overflow: hidden;"><defs id="defs"></defs><rect x="0" y="0" width="538" height="298" stroke="none" stroke-width="0" fill="#ffffff"></rect><g><text text-anchor="start" x="96" y="36.2" font-family="Arial" font-size="12" font-weight="bold" stroke="none" stroke-width="0" fill="#000000">Requests by Resource type - Mobile (Adblock)</text><rect x="96" y="26" width="347" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect></g><g><rect x="329" y="57" width="114" height="69" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g column-id="html"><rect x="329" y="57" width="114" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><text text-anchor="start" x="346" y="67.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#222222">html</text></g><circle cx="335" cy="63" r="6" stroke="none" stroke-width="0" fill="#3366cc"></circle></g><g column-id="js"><rect x="329" y="76" width="114" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><text text-anchor="start" x="346" y="86.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#222222">js</text></g><circle cx="335" cy="82" r="6" stroke="none" stroke-width="0" fill="#dc3912"></circle></g><g column-id="css"><rect x="329" y="95" width="114" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><text text-anchor="start" x="346" y="105.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#222222">css</text></g><circle cx="335" cy="101" r="6" stroke="none" stroke-width="0" fill="#ff9900"></circle></g><g column-id="image"><rect x="329" y="114" width="114" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><text text-anchor="start" x="346" y="124.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#222222">image</text></g><circle cx="335" cy="120" r="6" stroke="none" stroke-width="0" fill="#109618"></circle></g></g><g><path d="M203,139.8L203,158.20000000000002L294.8650740743034,154.21537632811328L294.8650740743034,135.81537632811327" stroke="#264d99" stroke-width="1" fill="#264d99"></path><path d="M203,139.8L203,66.2A92,73.60000000000001,0,0,1,294.8650740743034,135.81537632811327L203,139.8A0,0,0,0,0,203,139.8" stroke="#3366cc" stroke-width="1" fill="#3366cc"></path><text text-anchor="start" x="249.66327419663398" y="103.62976153045182" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#ffffff">7</text></g><g><path d="M173.62425922748986,209.5472733990543L173.62425922748986,227.9472733990543A92,73.60000000000001,0,0,1,111,158.20000000000002L111,139.8A92,73.60000000000001,0,0,0,173.62425922748986,209.5472733990543" stroke="#0c7112" stroke-width="1" fill="#0c7112"></path><path d="M203,139.8L203,158.20000000000002L173.62425922748986,227.9472733990543L173.62425922748986,209.5472733990543" stroke="#0c7112" stroke-width="1" fill="#0c7112"></path><path d="M203,139.8L173.62425922748986,209.5472733990543A92,73.60000000000001,0,0,1,203,66.2L203,139.8A0,0,0,0,0,203,139.8" stroke="#109618" stroke-width="1" fill="#109618"></path><text text-anchor="start" x="125.38032400523883" y="135.08531866911494" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#ffffff">13</text></g><g><path d="M193.05305030499733,212.9685536465609L193.05305030499733,231.3685536465609A92,73.60000000000001,0,0,1,173.62425922748986,227.94727339905427L173.62425922748986,209.5472733990543A92,73.60000000000001,0,0,0,193.05305030499733,212.9685536465609" stroke="#bf7300" stroke-width="1" fill="#bf7300"></path><path d="M203,139.8L203,158.20000000000002L193.05305030499733,231.3685536465609L193.05305030499733,212.9685536465609" stroke="#bf7300" stroke-width="1" fill="#bf7300"></path><path d="M203,139.8L193.05305030499733,212.9685536465609A92,73.60000000000001,0,0,1,173.62425922748986,209.5472733990543L203,139.8A0,0,0,0,0,203,139.8" stroke="#ff9900" stroke-width="1" fill="#ff9900"></path></g><g><path d="M295,139.8L295,158.20000000000002A92,73.60000000000001,0,0,1,193.05305030499733,231.36855364656088L193.05305030499733,212.9685536465609A92,73.60000000000001,0,0,0,295,139.8" stroke="#a52b0e" stroke-width="1" fill="#a52b0e"></path><path d="M203,139.8L294.8650740743034,135.81537632811327A92,73.60000000000001,0,0,1,193.05305030499733,212.9685536465609L203,139.8A0,0,0,0,0,203,139.8" stroke="#dc3912" stroke-width="1" fill="#dc3912"></path><text text-anchor="start" x="249.663274196634" y="184.37023846954818" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#ffffff">8</text></g><g></g></svg><div aria-label="A tabular representation of the data in the chart." style="position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden;"><table><thead><tr><th>MIME Type</th><th>Number of Requests</th></tr></thead><tbody><tr><td>html</td><td>7</td></tr><tr><td>js</td><td>8</td></tr><tr><td>css</td><td>1</td></tr><tr><td>image</td><td>13</td></tr><tr><td>flash</td><td>0</td></tr><tr><td>font</td><td>0</td></tr><tr><td>video</td><td>0</td></tr><tr><td>other</td><td>0</td></tr></tbody></table></div></div></div><div aria-hidden="true" style="display: none; position: absolute; top: 308px; left: 548px; white-space: nowrap; font-family: Arial; font-size: 12px;">image</div><div></div></div></div></td>
+     				</tr>
+     			</tbody></table>
+     			<table class="columns">
+     			  <tbody><tr>
+     				<!--<td><div id="Sarah_chart_div" style="border: 1px solid #ccc"></div></td>
+     				<td><div id="Anthony_chart_div" style="border: 1px solid #ccc"></div></td>
+     			  -->
+     				<td><div id="piechart_bytes_ad" style="border: 1px solid #ccc; width: 540px; height: 300px;"><div style="position: relative;"><div dir="ltr" style="position: relative; width: 538px; height: 298px;"><div aria-label="A chart." style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%;"><svg width="538" height="298" aria-label="A chart." style="overflow: hidden;"><defs id="defs"></defs><rect x="0" y="0" width="538" height="298" stroke="none" stroke-width="0" fill="#ffffff"></rect><g><text text-anchor="start" x="96" y="36.2" font-family="Arial" font-size="12" font-weight="bold" stroke="none" stroke-width="0" fill="#000000">Weight by Resource type - Mobile (Standard)</text><rect x="96" y="26" width="347" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect></g><g><rect x="329" y="57" width="114" height="88" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g column-id="html"><rect x="329" y="57" width="114" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><text text-anchor="start" x="346" y="67.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#222222">html</text></g><circle cx="335" cy="63" r="6" stroke="none" stroke-width="0" fill="#3366cc"></circle></g><g column-id="js"><rect x="329" y="76" width="114" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><text text-anchor="start" x="346" y="86.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#222222">js</text></g><circle cx="335" cy="82" r="6" stroke="none" stroke-width="0" fill="#dc3912"></circle></g><g column-id="css"><rect x="329" y="95" width="114" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><text text-anchor="start" x="346" y="105.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#222222">css</text></g><circle cx="335" cy="101" r="6" stroke="none" stroke-width="0" fill="#ff9900"></circle></g><g column-id="image"><rect x="329" y="114" width="114" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><text text-anchor="start" x="346" y="124.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#222222">image</text></g><circle cx="335" cy="120" r="6" stroke="none" stroke-width="0" fill="#109618"></circle></g><g><rect x="329" y="133" width="114" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><text text-anchor="start" x="346" y="143.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#222222">Other</text></g><circle cx="335" cy="139" r="6" stroke="none" stroke-width="0" fill="#cccccc"></circle></g></g><g><path d="M203,139.8L203,158.20000000000002L223.1070338306774,86.37930241260202L223.1070338306774,67.97930241260201" stroke="#264d99" stroke-width="1" fill="#264d99"></path><path d="M203,139.8L203,66.2A92,73.60000000000001,0,0,1,223.1070338306774,67.97930241260201L203,139.8A0,0,0,0,0,203,139.8" stroke="#3366cc" stroke-width="1" fill="#3366cc"></path></g><g><path d="M295,139.8L295,158.20000000000002A92,73.60000000000001,0,0,1,290.6914321367185,180.45974274512682L290.6914321367185,162.0597427451268A92,73.60000000000001,0,0,0,295,139.8" stroke="#a52b0e" stroke-width="1" fill="#a52b0e"></path><path d="M203,139.8L203,158.20000000000002L290.6914321367185,180.45974274512682L290.6914321367185,162.0597427451268" stroke="#a52b0e" stroke-width="1" fill="#a52b0e"></path><path d="M203,139.8L223.1070338306774,67.97930241260201A92,73.60000000000001,0,0,1,290.6914321367185,162.0597427451268L203,139.8A0,0,0,0,0,203,139.8" stroke="#dc3912" stroke-width="1" fill="#dc3912"></path><text text-anchor="start" x="231.24834893596523" y="121.98561819984808" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#ffffff">363,567</text></g><g><path d="M290.6914321367185,162.0597427451268L290.6914321367185,180.45974274512682A92,73.60000000000001,0,0,1,281.2628548116045,196.88995161940812L281.2628548116045,178.4899516194081A92,73.60000000000001,0,0,0,290.6914321367185,162.0597427451268" stroke="#bf7300" stroke-width="1" fill="#bf7300"></path><path d="M203,139.8L203,158.20000000000002L281.2628548116045,196.8899516194081L281.2628548116045,178.4899516194081" stroke="#bf7300" stroke-width="1" fill="#bf7300"></path><path d="M203,139.8L290.6914321367185,162.0597427451268A92,73.60000000000001,0,0,1,281.2628548116045,178.4899516194081L203,139.8A0,0,0,0,0,203,139.8" stroke="#ff9900" stroke-width="1" fill="#ff9900"></path></g><g><path d="M203,139.8L203,158.20000000000002L202.82885127690486,84.60012735613375L202.82885127690486,66.20012735613375" stroke="#999999" stroke-width="1" fill="#999999"></path><path d="M203,139.8L202.82885127690486,66.20012735613375A92,73.60000000000001,0,0,1,203,66.2L203,139.8A0,0,0,0,0,203,139.8" stroke="#cccccc" stroke-width="1" fill="#cccccc"></path></g><g><path d="M281.2628548116045,178.4899516194081L281.2628548116045,196.8899516194081A92,73.60000000000001,0,0,1,111,158.20000000000002L111,139.8A92,73.60000000000001,0,0,0,281.2628548116045,178.4899516194081" stroke="#0c7112" stroke-width="1" fill="#0c7112"></path><path d="M203,139.8L281.2628548116045,178.4899516194081A92,73.60000000000001,0,1,1,202.82885127690486,66.20012735613375L203,139.8A0,0,0,1,0,203,139.8" stroke="#109618" stroke-width="1" fill="#109618"></path><text text-anchor="start" x="131.54953854060022" y="165.70750133604437" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#ffffff">911,708</text></g><g></g></svg><div aria-label="A tabular representation of the data in the chart." style="position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden;"><table><thead><tr><th>MIME Type</th><th>Number of Bytes</th></tr></thead><tbody><tr><td>html</td><td>48,323</td></tr><tr><td>js</td><td>363,567</td></tr><tr><td>css</td><td>54,009</td></tr><tr><td>image</td><td>911,708</td></tr><tr><td>flash</td><td>0</td></tr><tr><td>font</td><td>0</td></tr><tr><td>video</td><td>0</td></tr><tr><td>other</td><td>408</td></tr></tbody></table></div></div></div><div aria-hidden="true" style="display: none; position: absolute; top: 308px; left: 548px; white-space: nowrap; font-family: Arial; font-size: 12px;">Other</div><div></div></div></div></td>
+     				<td><div id="piechart_bytes" style="border: 1px solid #ccc; width: 540px; height: 300px;"><div style="position: relative;"><div dir="ltr" style="position: relative; width: 538px; height: 298px;"><div aria-label="A chart." style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%;"><svg width="538" height="298" aria-label="A chart." style="overflow: hidden;"><defs id="defs"></defs><rect x="0" y="0" width="538" height="298" stroke="none" stroke-width="0" fill="#ffffff"></rect><g><text text-anchor="start" x="96" y="36.2" font-family="Arial" font-size="12" font-weight="bold" stroke="none" stroke-width="0" fill="#000000">Weight by Resource type - Mobile (Adblock)</text><rect x="96" y="26" width="347" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect></g><g><rect x="329" y="57" width="114" height="69" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g column-id="html"><rect x="329" y="57" width="114" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><text text-anchor="start" x="346" y="67.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#222222">html</text></g><circle cx="335" cy="63" r="6" stroke="none" stroke-width="0" fill="#3366cc"></circle></g><g column-id="js"><rect x="329" y="76" width="114" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><text text-anchor="start" x="346" y="86.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#222222">js</text></g><circle cx="335" cy="82" r="6" stroke="none" stroke-width="0" fill="#dc3912"></circle></g><g column-id="css"><rect x="329" y="95" width="114" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><text text-anchor="start" x="346" y="105.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#222222">css</text></g><circle cx="335" cy="101" r="6" stroke="none" stroke-width="0" fill="#ff9900"></circle></g><g column-id="image"><rect x="329" y="114" width="114" height="12" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><text text-anchor="start" x="346" y="124.2" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#222222">image</text></g><circle cx="335" cy="120" r="6" stroke="none" stroke-width="0" fill="#109618"></circle></g></g><g><path d="M203,139.8L203,158.20000000000002L208.10553626144093,84.7134200029067L208.10553626144093,66.31342000290671" stroke="#264d99" stroke-width="1" fill="#264d99"></path><path d="M203,139.8L203,66.2A92,73.60000000000001,0,0,1,208.10553626144093,66.31342000290671L203,139.8A0,0,0,0,0,203,139.8" stroke="#3366cc" stroke-width="1" fill="#3366cc"></path></g><g><path d="M295,139.8L295,158.20000000000002A92,73.60000000000001,0,0,1,294.2950759768597,167.29361454663785L294.2950759768597,148.89361454663785A92,73.60000000000001,0,0,0,295,139.8" stroke="#a52b0e" stroke-width="1" fill="#a52b0e"></path><path d="M203,139.8L203,158.20000000000002L294.2950759768597,167.29361454663785L294.2950759768597,148.89361454663785" stroke="#a52b0e" stroke-width="1" fill="#a52b0e"></path><path d="M203,139.8L208.10553626144093,66.31342000290671A92,73.60000000000001,0,0,1,294.2950759768597,148.89361454663785L203,139.8A0,0,0,0,0,203,139.8" stroke="#dc3912" stroke-width="1" fill="#dc3912"></path><text text-anchor="start" x="226.11416368643447" y="115.31650100163333" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#ffffff">303,630</text></g><g><path d="M294.2950759768597,148.89361454663785L294.2950759768597,167.29361454663785A92,73.60000000000001,0,0,1,287.17443896679634,187.90429005648932L287.17443896679634,169.5042900564893A92,73.60000000000001,0,0,0,294.2950759768597,148.89361454663785" stroke="#bf7300" stroke-width="1" fill="#bf7300"></path><path d="M203,139.8L203,158.20000000000002L287.17443896679634,187.90429005648932L287.17443896679634,169.5042900564893" stroke="#bf7300" stroke-width="1" fill="#bf7300"></path><path d="M203,139.8L294.2950759768597,148.89361454663785A92,73.60000000000001,0,0,1,287.17443896679634,169.5042900564893L203,139.8A0,0,0,0,0,203,139.8" stroke="#ff9900" stroke-width="1" fill="#ff9900"></path></g><g><path d="M287.17443896679634,169.5042900564893L287.17443896679634,187.90429005648932A92,73.60000000000001,0,0,1,111,158.20000000000002L111,139.8A92,73.60000000000001,0,0,0,287.17443896679634,169.5042900564893" stroke="#0c7112" stroke-width="1" fill="#0c7112"></path><path d="M203,139.8L287.17443896679634,169.5042900564893A92,73.60000000000001,0,1,1,203,66.2L203,139.8A0,0,0,1,0,203,139.8" stroke="#109618" stroke-width="1" fill="#109618"></path><text text-anchor="start" x="133.27715034013633" y="168.20446323168386" font-family="Arial" font-size="12" stroke="none" stroke-width="0" fill="#ffffff">795,954</text></g><g></g></svg><div aria-label="A tabular representation of the data in the chart." style="position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden;"><table><thead><tr><th>MIME Type</th><th>Number of Bytes</th></tr></thead><tbody><tr><td>html</td><td>10,285</td></tr><tr><td>js</td><td>303,630</td></tr><tr><td>css</td><td>54,009</td></tr><tr><td>image</td><td>795,954</td></tr><tr><td>flash</td><td>0</td></tr><tr><td>font</td><td>0</td></tr><tr><td>video</td><td>0</td></tr><tr><td>other</td><td>0</td></tr></tbody></table></div></div></div><div aria-hidden="true" style="display: none; position: absolute; top: 308px; left: 548px; white-space: nowrap; font-family: Arial; font-size: 12px;">image</div><div></div></div></div></td>
+     				</tr>
+     			</tbody></table>
+               </div>
+
+          </div>
+
+          <script>
+               function myFunction() {
+                   var x = document.getElementById("myDIV");
+                   if (x.style.display === "none") {
+                       x.style.display = "block";
+                   } else {
+                       x.style.display = "none";
+                   }
+
+                   var y = document.getElementById("myDIV_1");
+                   if (y.style.display === "none") {
+                       y.style.display = "block";
+                   } else {
+                       y.style.display = "none";
+                   }
+
+                   var z = document.getElementById("myDIV_2");
+                   if (z.style.display === "none") {
+                       z.style.display = "block";
+                   } else {
+                       z.style.display = "none";
+                   }
+
+               }
+               google.charts.load('current', {packages: ['corechart', 'bar']});
+               google.charts.setOnLoadCallback(drawAnnotations);
+               function drawAnnotations() {
+                     var data = google.visualization.arrayToDataTable([
+                       ['Summary', 'Mobile (Adblock)', 'Mobile (Standard)'],
+                       ['Load Time', parseInt(document.getElementById('ld').textContent), parseInt(document.getElementById('ld_ad').textContent)],
+                       ['First Byte', parseInt(document.getElementById('ttfb').textContent), parseInt(document.getElementById('ttfb_ad').textContent)],
+                       ['Start Render', parseInt(document.getElementById('str').textContent),  parseInt(document.getElementById('str_ad').textContent)],
+                       ['Visually Complete', parseInt(document.getElementById('visComp').textContent), parseInt(document.getElementById('visComp_ad').textContent)],
+                       ['Fully Loaded', parseInt(document.getElementById('fl').textContent),  parseInt(document.getElementById('fl_ad').textContent)]
+                     ]);
+
+                     var data = google.visualization.arrayToDataTable([
+                       ['Summary', 'Mobile (Adblock)', {type: 'string', role: 'annotation'},
+                        'Mobile (Standard)', {type: 'string', role: 'annotation'}],
+                       ['Load Time', parseInt(document.getElementById('ld').textContent), document.getElementById('ld').textContent, parseInt(document.getElementById('ld_ad').textContent), document.getElementById('ld_ad').textContent],
+                       ['First Byte', parseInt(document.getElementById('ttfb').textContent), document.getElementById('ttfb').textContent, parseInt(document.getElementById('ttfb_ad').textContent), document.getElementById('ttfb_ad').textContent],
+                       ['Start Render', parseInt(document.getElementById('str').textContent), document.getElementById('str').textContent, parseInt(document.getElementById('str_ad').textContent), document.getElementById('str_ad').textContent],
+                       ['Visually Complete', parseInt(document.getElementById('visComp').textContent), document.getElementById('visComp').textContent, parseInt(document.getElementById('visComp_ad').textContent), document.getElementById('visComp_ad').textContent],
+                       ['Fully Loaded', parseInt(document.getElementById('fl').textContent), document.getElementById('fl').textContent, parseInt(document.getElementById('fl_ad').textContent), document.getElementById('fl_ad').textContent]
+                     ]);
+
+                     var options = {
+                       title: 'Summary of Various Metrics',
+                       chartArea: {width: '50%'},
+                       annotations: {
+                         alwaysOutside: true,
+                         textStyle: {
+                           fontSize: 12,
+                           auraColor: 'none',
+                           color: '#555'
+                         },
+                         boxStyle: {
+                           stroke: '#ccc',
+                           strokeWidth: 1,
+                           gradient: {
+                             color1: '#f3e5f5',
+                             color2: '#f3e5f5',
+                             x1: '0%', y1: '0%',
+                             x2: '100%', y2: '100%'
+                           }
+                         }
+                       },
+                       hAxis: {
+                         title: 'Time in milliseconds',
+                         minValue: 0,
+                       },
+                       vAxis: {
+                         title: 'Metrics'
+                       }
+                     };
+                     var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+                     chart.draw(data, options);
+                   }
+
+                   google.charts.load('current', {packages: ['corechart', 'bar']});
+                  google.charts.setOnLoadCallback(drawAnnotations_1);
+                  function drawAnnotations_1() {
+                        var data = google.visualization.arrayToDataTable([
+                          ['Document Complete', 'Mobile (Adblock)', 'Mobile (Standard)'],
+                          ['Document Load time in ms', parseInt(document.getElementById('doctime').textContent), parseInt(document.getElementById('doctime_ad').textContent)],
+                          ['Requests', parseInt(document.getElementById('req_docs').textContent), parseInt(document.getElementById('req_docs_ad').textContent)],
+                          ['Bytes in KB', parseInt(document.getElementById('bytes_in_doc').textContent)/1024,  parseInt(document.getElementById('bytes_in_doc_ad').textContent)/1024],
+                        ]);
+
+                        var data = google.visualization.arrayToDataTable([
+                          ['Document Complete', 'Mobile (Adblock)', {type: 'string', role: 'annotation'},
+                           'Mobile (Standard)', {type: 'string', role: 'annotation'}],
+                          ['Document Load time in ms', parseInt(document.getElementById('doctime').textContent), document.getElementById('doctime').textContent, parseInt(document.getElementById('doctime_ad').textContent), document.getElementById('doctime_ad').textContent],
+                          ['Requests', parseInt(document.getElementById('req_docs').textContent), document.getElementById('req_docs').textContent, parseInt(document.getElementById('req_docs_ad').textContent), document.getElementById('req_docs_ad').textContent],
+                          ['Bytes in KB', parseInt(document.getElementById('bytes_in_doc').textContent)/1024, document.getElementById('bytes_in_doc').textContent, parseInt(document.getElementById('bytes_in_doc_ad').textContent)/1024, document.getElementById('bytes_in_doc_ad').textContent],
+                         ]);
+
+                        var options = {
+                          title: 'Document Complete Metrics',
+                          chartArea: {width: '50%'},
+                          annotations: {
+                            alwaysOutside: true,
+                            textStyle: {
+                              fontSize: 12,
+                              auraColor: 'none',
+                              color: '#555'
+                            },
+                            boxStyle: {
+                              stroke: '#ccc',
+                              strokeWidth: 1,
+                              gradient: {
+                                color1: '#f3e5f5',
+                                color2: '#f3e5f5',
+                                x1: '0%', y1: '0%',
+                                x2: '100%', y2: '100%'
+                              }
+                            }
+                          },
+                          hAxis: {
+                            title: '',
+                            minValue: 0,
+                          },
+                          vAxis: {
+                            title: 'Metrics'
+                          }
+                        };
+                        var chart = new google.visualization.BarChart(document.getElementById('chart_div_1'));
+                        chart.draw(data, options);
+                      }
+
+                      google.charts.load('current', {packages: ['corechart', 'bar']});
+                     google.charts.setOnLoadCallback(drawAnnotations_2);
+                     function drawAnnotations_2() {
+                           var data = google.visualization.arrayToDataTable([
+                             ['Page Load Complete', 'Mobile (Adblock)', 'Mobile (Standard)'],
+                             ['Full Load time in ms', parseInt(document.getElementById('fulltime').textContent), parseInt(document.getElementById('fulltime_ad').textContent)],
+                             ['Requests', parseInt(document.getElementById('req').textContent), parseInt(document.getElementById('req_ad').textContent)],
+                             ['Bytes in KB', parseInt(document.getElementById('bytes_in').textContent)/1024,  parseInt(document.getElementById('bytes_in_ad').textContent)/1024],
+                           ]);
+
+                           var data = google.visualization.arrayToDataTable([
+                             ['Page Load Complete', 'Mobile (Adblock)', {type: 'string', role: 'annotation'},
+                              'Mobile (Standard)', {type: 'string', role: 'annotation'}],
+                             ['Full Load time in ms', parseInt(document.getElementById('fulltime').textContent), document.getElementById('fulltime').textContent, parseInt(document.getElementById('fulltime_ad').textContent), document.getElementById('fulltime_ad').textContent],
+                             ['Requests', parseInt(document.getElementById('req').textContent), document.getElementById('req').textContent, parseInt(document.getElementById('req_ad').textContent), document.getElementById('req_ad').textContent],
+                             ['Bytes in KB', parseInt(document.getElementById('bytes_in').textContent)/1024, document.getElementById('bytes_in').textContent, parseInt(document.getElementById('bytes_in_ad').textContent)/1024, document.getElementById('bytes_in_ad').textContent],
+                            ]);
+
+                           var options = {
+                             title: 'Full Page Load Complete Metrics',
+                             chartArea: {width: '50%'},
+                             annotations: {
+                               alwaysOutside: true,
+                               textStyle: {
+                                 fontSize: 12,
+                                 auraColor: 'none',
+                                 color: '#555'
+                               },
+                               boxStyle: {
+                                 stroke: '#ccc',
+                                 strokeWidth: 1,
+                                 gradient: {
+                                   color1: '#f3e5f5',
+                                   color2: '#f3e5f5',
+                                   x1: '0%', y1: '0%',
+                                   x2: '100%', y2: '100%'
+                                 }
+                               }
+                             },
+                             hAxis: {
+                               title: '',
+                               minValue: 0,
+                             },
+                             vAxis: {
+                               title: 'Metrics'
+                             }
+                           };
+                           var chart = new google.visualization.BarChart(document.getElementById('chart_div_2'));
+                           chart.draw(data, options);
+                         }
+
+          </script>
+          <script>
+			  google.charts.load('current', {'packages':['corechart']});
+			  google.charts.setOnLoadCallback(drawChart);
+
+			  function drawChart() {
+
+				var data = google.visualization.arrayToDataTable([
+				  ['MIME Type', 'Number of Requests'],
+				  ['html',     parseInt(document.getElementById('html_req').textContent)],
+				  ['js',      parseInt(document.getElementById('js_req').textContent)],
+				  ['css',  parseInt(document.getElementById('css_req').textContent)],
+				  ['image', parseInt(document.getElementById('image_req').textContent)],
+				  ['flash',    parseInt(document.getElementById('flash_req').textContent)],
+				  ['font',    parseInt(document.getElementById('video_req').textContent)],
+				  ['video',    parseInt(document.getElementById('video_req').textContent)],
+				  ['other',    parseInt(document.getElementById('other_req').textContent)]
+				]);
+
+				var options = {
+				  title: 'Requests by Resource type - Mobile (Adblock)',
+				  is3D: 'true',
+				  pieSliceText: 'value',
+				};
+
+				var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+				chart.draw(data, options);
+			}
+		  </script>
+		  <script>
+			  google.charts.load('current', {'packages':['corechart']});
+			  google.charts.setOnLoadCallback(drawChart);
+
+			  function drawChart() {
+
+				var data = google.visualization.arrayToDataTable([
+				  ['MIME Type', 'Number of Requests'],
+				  ['html',     parseInt(document.getElementById('html_req_ad').textContent)],
+				  ['js',      parseInt(document.getElementById('js_req_ad').textContent)],
+				  ['css',  parseInt(document.getElementById('css_req_ad').textContent)],
+				  ['image', parseInt(document.getElementById('image_req_ad').textContent)],
+				  ['flash',    parseInt(document.getElementById('flash_req_ad').textContent)],
+				  ['font',    parseInt(document.getElementById('video_req_ad').textContent)],
+				  ['video',    parseInt(document.getElementById('video_req_ad').textContent)],
+				  ['other',    parseInt(document.getElementById('other_req_ad').textContent)]
+				]);
+
+				var options = {
+				  title: 'Requests by Resource type - Mobile (Standard)',
+				  is3D: 'true',
+				  pieSliceText: 'value',
+				};
+
+				var chart = new google.visualization.PieChart(document.getElementById('piechart_ad'));
+
+				chart.draw(data, options);
+			}
+		  </script>
+		  <script>
+			  google.charts.load('current', {'packages':['corechart']});
+			  google.charts.setOnLoadCallback(drawChart);
+
+			  function drawChart() {
+
+				var data = google.visualization.arrayToDataTable([
+				  ['MIME Type', 'Number of Bytes'],
+				  ['html',     parseInt(document.getElementById('html_bytes').textContent)],
+				  ['js',      parseInt(document.getElementById('js_bytes').textContent)],
+				  ['css',  parseInt(document.getElementById('css_bytes').textContent)],
+				  ['image', parseInt(document.getElementById('image_bytes').textContent)],
+				  ['flash',    parseInt(document.getElementById('flash_bytes').textContent)],
+				  ['font',    parseInt(document.getElementById('font_bytes').textContent)],
+				  ['video',    parseInt(document.getElementById('video_bytes').textContent)],
+				  ['other',    parseInt(document.getElementById('other_bytes').textContent)]
+				]);
+
+				var options = {
+				  title: 'Weight by Resource type - Mobile (Adblock)',
+				  is3D: 'true',
+				  pieSliceText: 'value',
+				};
+
+				var chart = new google.visualization.PieChart(document.getElementById('piechart_bytes'));
+
+				chart.draw(data, options);
+			}
+		  </script>
+		  <script>
+			  google.charts.load('current', {'packages':['corechart']});
+			  google.charts.setOnLoadCallback(drawChart);
+
+			  function drawChart() {
+
+				var data = google.visualization.arrayToDataTable([
+				  ['MIME Type', 'Number of Bytes'],
+				  ['html',     parseInt(document.getElementById('html_bytes_ad').textContent)],
+				  ['js',      parseInt(document.getElementById('js_bytes_ad').textContent)],
+				  ['css',  parseInt(document.getElementById('css_bytes_ad').textContent)],
+				  ['image', parseInt(document.getElementById('image_bytes_ad').textContent)],
+				  ['flash',    parseInt(document.getElementById('flash_bytes_ad').textContent)],
+				  ['font',    parseInt(document.getElementById('font_bytes_ad').textContent)],
+				  ['video',    parseInt(document.getElementById('video_bytes_ad').textContent)],
+				  ['other',    parseInt(document.getElementById('other_bytes_ad').textContent)]
+				]);
+
+				var options = {
+				  title: 'Weight by Resource type - Mobile (Standard)',
+				  is3D: 'true',
+				  pieSliceText: 'value',
+				};
+
+				var chart = new google.visualization.PieChart(document.getElementById('piechart_bytes_ad'));
+
+				chart.draw(data, options);
+			}
+		  </script>
+     
+
+</body></html>

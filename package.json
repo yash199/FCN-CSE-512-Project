@@ -1,0 +1,14 @@
+{
+  "name": "express-html",
+  "version": "0.0.1",
+  "dependencies": {
+    "ajax-request": "^1.2.3",
+    "ejs": "^2.6.1",
+    "express": "3.x",
+    "external-ip": "^2.0.3",
+    "fast-csv": "^2.4.1",
+    "jquery": "^3.3.1",
+    "jsdom": "^11.10.0",
+    "json2csv": "^4.1.2"
+  }
+}

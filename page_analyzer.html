@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+     <head>
+          <meta charset="utf-8">
+          <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+          <!-- Latest compiled and minified JavaScript -->
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+          <!-- <script type="text/javascript" src="server.js"></script> -->
+          <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+          <title>Page Load time analyzer</title>
+          <!-- <style>
+          #myDIV {
+              width: 100%;
+              padding: 50px 0;
+              text-align: center;
+              background-color: lightblue;
+              margin-top: 20px;
+          }
+          </style> -->
+     </head>
+     <body>
+          <div class="container">
+               <form action = '/' method='post'>
+                 <div class="form-group">
+                   <label for="inputUrl">Enter the URL</label>
+                   <input type="text" class="form-control" name="urlname" placeholder="Enter the url">
+                 </div>
+                 <button type="submit" class="btn btn-primary" onclick="myFunction()">Analyze</button>
+               </form>
+
+               <div id="myDIV">
+                    <div id='ld' style="display:none"><%= loadtime %></div>
+                    <div id='ttfb' style="display:none"><%= ttfb %></div>
+                    <div id='str' style="display:none"><%= st_render %></div>
+                    <div id='visComp' style="display:none"><%= visual_comp %></div>
+                    <div id='fl' style="display:none"><%= full_load %></div>
+                    <div id='ld_ad' style="display:none"><%= loadtime_ad %></div>
+                    <div id='ttfb_ad' style="display:none"><%= ttfb_ad %></div>
+                    <div id='str_ad' style="display:none"><%= st_render_ad %></div>
+                    <div id='visComp_ad' style="display:none"><%= visual_comp_ad %></div>
+                    <div id='fl_ad' style="display:none"><%= full_load_ad %></div>
+                    <div id="chart_div"></div>
+               </div>
+
+               <div id="myDIV_1">
+                    <div id='bytes_in_doc' style="display:none"><%= bytes_in_doc %></div>
+                    <div id='req_docs' style="display:none"><%= req_docs %></div>
+                    <div id='doctime' style="display:none"><%= doctime %></div>
+                    <div id='bytes_in_doc_ad' style="display:none"><%= bytes_in_doc_ad %></div>
+                    <div id='req_docs_ad' style="display:none"><%= req_docs_ad %></div>
+                    <div id='doctime_ad' style="display:none"><%= doctime_ad %></div>
+                    <div id="chart_div_1"></div>
+               </div>
+
+               <div id="myDIV_2">
+                    <div id='bytes_in' style="display:none"><%= bytes_in %></div>
+                    <div id='req' style="display:none"><%= requests %></div>
+                    <div id='fulltime' style="display:none"><%= fully_loaded %></div>
+                    <div id='bytes_in_ad' style="display:none"><%= bytes_in_ad %></div>
+                    <div id='req_ad' style="display:none"><%= requests_ad %></div>
+                    <div id='fulltime_ad' style="display:none"><%= fully_loaded_ad %></div>
+                    <div id="chart_div_2"></div>
+
+                    <div id='html_req' style="display:none"><%= html_req %></div>
+     			<div id='js_req' style="display:none"><%= js_req %></div>
+     			<div id='css_req' style="display:none"><%= css_req %></div>
+     			<div id='image_req' style="display:none"><%= image_req %></div>
+     			<div id='flash_req' style="display:none"><%= flash_req %></div>
+     			<div id='video_req' style="display:none"><%= video_req %></div>
+     			<div id='other_req' style="display:none"><%= other_req %></div>
+     			<div id='font_req' style="display:none"><%= font_req %></div>
+
+     			<div id='html_bytes' style="display:none"><%= html_bytes %></div>
+     			<div id='js_bytes' style="display:none"><%= js_bytes %></div>
+     			<div id='css_bytes' style="display:none"><%= css_bytes %></div>
+     			<div id='image_bytes' style="display:none"><%= image_bytes %></div>
+     			<div id='flash_bytes' style="display:none"><%= flash_bytes %></div>
+     			<div id='video_bytes' style="display:none"><%= video_bytes %></div>
+     			<div id='other_bytes' style="display:none"><%= other_bytes %></div>
+     			<div id='font_bytes' style="display:none"><%= font_bytes %></div>
+
+     			<div id='html_req_ad' style="display:none"><%= html_req_ad %></div>
+     			<div id='js_req_ad' style="display:none"><%= js_req_ad %></div>
+     			<div id='css_req_ad' style="display:none"><%= css_req_ad %></div>
+     			<div id='image_req_ad' style="display:none"><%= image_req_ad %></div>
+     			<div id='flash_req_ad' style="display:none"><%= flash_req_ad %></div>
+     			<div id='video_req_ad' style="display:none"><%= video_req_ad %></div>
+     			<div id='other_req_ad' style="display:none"><%= other_req_ad %></div>
+     			<div id='font_req_ad' style="display:none"><%= font_req_ad %></div>
+
+     			<div id='html_bytes_ad' style="display:none"><%= html_bytes_ad %></div>
+     			<div id='js_bytes_ad' style="display:none"><%= js_bytes_ad %></div>
+     			<div id='css_bytes_ad' style="display:none"><%= css_bytes_ad %></div>
+     			<div id='image_bytes_ad' style="display:none"><%= image_bytes_ad %></div>
+     			<div id='flash_bytes_ad' style="display:none"><%= flash_bytes_ad %></div>
+     			<div id='font_bytes_ad' style="display:none"><%= font_bytes_ad %></div>
+     			<div id='video_bytes_ad' style="display:none"><%= video_bytes_ad %></div>
+     			<div id='other_bytes_ad' style="display:none"><%= other_bytes_ad %></div>
+
+     			<table class="columns">
+     			  <tr>
+     				<!--<td><div id="Sarah_chart_div" style="border: 1px solid #ccc"></div></td>
+     				<td><div id="Anthony_chart_div" style="border: 1px solid #ccc"></div></td>
+     			  -->
+     				<td><div id="piechart_ad" style="border: 1px solid #ccc; width: 540px; height: 300px;"></div></td>
+     				<td><div id="piechart" style="border: 1px solid #ccc; width: 540px; height: 300px;"></div></td>
+     				</tr>
+     			</table>
+     			<table class="columns">
+     			  <tr>
+     				<!--<td><div id="Sarah_chart_div" style="border: 1px solid #ccc"></div></td>
+     				<td><div id="Anthony_chart_div" style="border: 1px solid #ccc"></div></td>
+     			  -->
+     				<td><div id="piechart_bytes_ad" style="border: 1px solid #ccc; width: 540px; height: 300px;"></div></td>
+     				<td><div id="piechart_bytes" style="border: 1px solid #ccc; width: 540px; height: 300px;"></div></td>
+     				</tr>
+     			</table>
+               </div>
+
+          </div>
+
+          <script>
+               function myFunction() {
+                   var x = document.getElementById("myDIV");
+                   if (x.style.display === "none") {
+                       x.style.display = "block";
+                   } else {
+                       x.style.display = "none";
+                   }
+
+                   var y = document.getElementById("myDIV_1");
+                   if (y.style.display === "none") {
+                       y.style.display = "block";
+                   } else {
+                       y.style.display = "none";
+                   }
+
+                   var z = document.getElementById("myDIV_2");
+                   if (z.style.display === "none") {
+                       z.style.display = "block";
+                   } else {
+                       z.style.display = "none";
+                   }
+
+               }
+               google.charts.load('current', {packages: ['corechart', 'bar']});
+               google.charts.setOnLoadCallback(drawAnnotations);
+               function drawAnnotations() {
+                     var data = google.visualization.arrayToDataTable([
+                       ['Summary', 'With Adblock', 'Without Adblock'],
+                       ['Load Time', parseInt(document.getElementById('ld').textContent), parseInt(document.getElementById('ld_ad').textContent)],
+                       ['First Byte', parseInt(document.getElementById('ttfb').textContent), parseInt(document.getElementById('ttfb_ad').textContent)],
+                       ['Start Render', parseInt(document.getElementById('str').textContent),  parseInt(document.getElementById('str_ad').textContent)],
+                       ['Visually Complete', parseInt(document.getElementById('visComp').textContent), parseInt(document.getElementById('visComp_ad').textContent)],
+                       ['Fully Loaded', parseInt(document.getElementById('fl').textContent),  parseInt(document.getElementById('fl_ad').textContent)]
+                     ]);
+
+                     var data = google.visualization.arrayToDataTable([
+                       ['Summary', 'With Adblock', {type: 'string', role: 'annotation'},
+                        'Without Adblock', {type: 'string', role: 'annotation'}],
+                       ['Load Time', parseInt(document.getElementById('ld').textContent), document.getElementById('ld').textContent, parseInt(document.getElementById('ld_ad').textContent), document.getElementById('ld_ad').textContent],
+                       ['First Byte', parseInt(document.getElementById('ttfb').textContent), document.getElementById('ttfb').textContent, parseInt(document.getElementById('ttfb_ad').textContent), document.getElementById('ttfb_ad').textContent],
+                       ['Start Render', parseInt(document.getElementById('str').textContent), document.getElementById('str').textContent, parseInt(document.getElementById('str_ad').textContent), document.getElementById('str_ad').textContent],
+                       ['Visually Complete', parseInt(document.getElementById('visComp').textContent), document.getElementById('visComp').textContent, parseInt(document.getElementById('visComp_ad').textContent), document.getElementById('visComp_ad').textContent],
+                       ['Fully Loaded', parseInt(document.getElementById('fl').textContent), document.getElementById('fl').textContent, parseInt(document.getElementById('fl_ad').textContent), document.getElementById('fl_ad').textContent]
+                     ]);
+
+                     var options = {
+                       title: 'Summary of Various Metrics',
+                       chartArea: {width: '50%'},
+                       annotations: {
+                         alwaysOutside: true,
+                         textStyle: {
+                           fontSize: 12,
+                           auraColor: 'none',
+                           color: '#555'
+                         },
+                         boxStyle: {
+                           stroke: '#ccc',
+                           strokeWidth: 1,
+                           gradient: {
+                             color1: '#f3e5f5',
+                             color2: '#f3e5f5',
+                             x1: '0%', y1: '0%',
+                             x2: '100%', y2: '100%'
+                           }
+                         }
+                       },
+                       hAxis: {
+                         title: 'Time in milliseconds',
+                         minValue: 0,
+                       },
+                       vAxis: {
+                         title: 'Metrics'
+                       }
+                     };
+                     var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+                     chart.draw(data, options);
+                   }
+
+                   google.charts.load('current', {packages: ['corechart', 'bar']});
+                  google.charts.setOnLoadCallback(drawAnnotations_1);
+                  function drawAnnotations_1() {
+                        var data = google.visualization.arrayToDataTable([
+                          ['Document Complete', 'With Adblock', 'Without Adblock'],
+                          ['Document Load time in ms', parseInt(document.getElementById('doctime').textContent), parseInt(document.getElementById('doctime_ad').textContent)],
+                          ['Requests', parseInt(document.getElementById('req_docs').textContent), parseInt(document.getElementById('req_docs_ad').textContent)],
+                          ['Bytes in KB', parseInt(document.getElementById('bytes_in_doc').textContent)/1024,  parseInt(document.getElementById('bytes_in_doc_ad').textContent)/1024],
+                        ]);
+
+                        var data = google.visualization.arrayToDataTable([
+                          ['Document Complete', 'With Adblock', {type: 'string', role: 'annotation'},
+                           'Without Adblock', {type: 'string', role: 'annotation'}],
+                          ['Document Load time in ms', parseInt(document.getElementById('doctime').textContent), document.getElementById('doctime').textContent, parseInt(document.getElementById('doctime_ad').textContent), document.getElementById('doctime_ad').textContent],
+                          ['Requests', parseInt(document.getElementById('req_docs').textContent), document.getElementById('req_docs').textContent, parseInt(document.getElementById('req_docs_ad').textContent), document.getElementById('req_docs_ad').textContent],
+                          ['Bytes in KB', parseInt(document.getElementById('bytes_in_doc').textContent)/1024, document.getElementById('bytes_in_doc').textContent, parseInt(document.getElementById('bytes_in_doc_ad').textContent)/1024, document.getElementById('bytes_in_doc_ad').textContent],
+                         ]);
+
+                        var options = {
+                          title: 'Document Complete Metrics',
+                          chartArea: {width: '50%'},
+                          annotations: {
+                            alwaysOutside: true,
+                            textStyle: {
+                              fontSize: 12,
+                              auraColor: 'none',
+                              color: '#555'
+                            },
+                            boxStyle: {
+                              stroke: '#ccc',
+                              strokeWidth: 1,
+                              gradient: {
+                                color1: '#f3e5f5',
+                                color2: '#f3e5f5',
+                                x1: '0%', y1: '0%',
+                                x2: '100%', y2: '100%'
+                              }
+                            }
+                          },
+                          hAxis: {
+                            title: '',
+                            minValue: 0,
+                          },
+                          vAxis: {
+                            title: 'Metrics'
+                          }
+                        };
+                        var chart = new google.visualization.BarChart(document.getElementById('chart_div_1'));
+                        chart.draw(data, options);
+                      }
+
+                      google.charts.load('current', {packages: ['corechart', 'bar']});
+                     google.charts.setOnLoadCallback(drawAnnotations_2);
+                     function drawAnnotations_2() {
+                           var data = google.visualization.arrayToDataTable([
+                             ['Page Load Complete', 'With Adblock', 'Without Adblock'],
+                             ['Full Load time in ms', parseInt(document.getElementById('fulltime').textContent), parseInt(document.getElementById('fulltime_ad').textContent)],
+                             ['Requests', parseInt(document.getElementById('req').textContent), parseInt(document.getElementById('req_ad').textContent)],
+                             ['Bytes in KB', parseInt(document.getElementById('bytes_in').textContent)/1024,  parseInt(document.getElementById('bytes_in_ad').textContent)/1024],
+                           ]);
+
+                           var data = google.visualization.arrayToDataTable([
+                             ['Page Load Complete', 'With Adblock', {type: 'string', role: 'annotation'},
+                              'Without Adblock', {type: 'string', role: 'annotation'}],
+                             ['Full Load time in ms', parseInt(document.getElementById('fulltime').textContent), document.getElementById('fulltime').textContent, parseInt(document.getElementById('fulltime_ad').textContent), document.getElementById('fulltime_ad').textContent],
+                             ['Requests', parseInt(document.getElementById('req').textContent), document.getElementById('req').textContent, parseInt(document.getElementById('req_ad').textContent), document.getElementById('req_ad').textContent],
+                             ['Bytes in KB', parseInt(document.getElementById('bytes_in').textContent)/1024, document.getElementById('bytes_in').textContent, parseInt(document.getElementById('bytes_in_ad').textContent)/1024, document.getElementById('bytes_in_ad').textContent],
+                            ]);
+
+                           var options = {
+                             title: 'Full Page Load Complete Metrics',
+                             chartArea: {width: '50%'},
+                             annotations: {
+                               alwaysOutside: true,
+                               textStyle: {
+                                 fontSize: 12,
+                                 auraColor: 'none',
+                                 color: '#555'
+                               },
+                               boxStyle: {
+                                 stroke: '#ccc',
+                                 strokeWidth: 1,
+                                 gradient: {
+                                   color1: '#f3e5f5',
+                                   color2: '#f3e5f5',
+                                   x1: '0%', y1: '0%',
+                                   x2: '100%', y2: '100%'
+                                 }
+                               }
+                             },
+                             hAxis: {
+                               title: '',
+                               minValue: 0,
+                             },
+                             vAxis: {
+                               title: 'Metrics'
+                             }
+                           };
+                           var chart = new google.visualization.BarChart(document.getElementById('chart_div_2'));
+                           chart.draw(data, options);
+                         }
+
+          </script>
+          <script>
+			  google.charts.load('current', {'packages':['corechart']});
+			  google.charts.setOnLoadCallback(drawChart);
+
+			  function drawChart() {
+
+				var data = google.visualization.arrayToDataTable([
+				  ['MIME Type', 'Number of Requests'],
+				  ['html',     parseInt(document.getElementById('html_req').textContent)],
+				  ['js',      parseInt(document.getElementById('js_req').textContent)],
+				  ['css',  parseInt(document.getElementById('css_req').textContent)],
+				  ['image', parseInt(document.getElementById('image_req').textContent)],
+				  ['flash',    parseInt(document.getElementById('flash_req').textContent)],
+				  ['font',    parseInt(document.getElementById('video_req').textContent)],
+				  ['video',    parseInt(document.getElementById('video_req').textContent)],
+				  ['other',    parseInt(document.getElementById('other_req').textContent)]
+				]);
+
+				var options = {
+				  title: 'Requests by Resource type (Adblock)',
+				  is3D: 'true',
+				  pieSliceText: 'value',
+				};
+
+				var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+				chart.draw(data, options);
+			}
+		  </script>
+		  <script>
+			  google.charts.load('current', {'packages':['corechart']});
+			  google.charts.setOnLoadCallback(drawChart);
+
+			  function drawChart() {
+
+				var data = google.visualization.arrayToDataTable([
+				  ['MIME Type', 'Number of Requests'],
+				  ['html',     parseInt(document.getElementById('html_req_ad').textContent)],
+				  ['js',      parseInt(document.getElementById('js_req_ad').textContent)],
+				  ['css',  parseInt(document.getElementById('css_req_ad').textContent)],
+				  ['image', parseInt(document.getElementById('image_req_ad').textContent)],
+				  ['flash',    parseInt(document.getElementById('flash_req_ad').textContent)],
+				  ['font',    parseInt(document.getElementById('video_req_ad').textContent)],
+				  ['video',    parseInt(document.getElementById('video_req_ad').textContent)],
+				  ['other',    parseInt(document.getElementById('other_req_ad').textContent)]
+				]);
+
+				var options = {
+				  title: 'Requests by Resource type (Standard)',
+				  is3D: 'true',
+				  pieSliceText: 'value',
+				};
+
+				var chart = new google.visualization.PieChart(document.getElementById('piechart_ad'));
+
+				chart.draw(data, options);
+			}
+		  </script>
+		  <script>
+			  google.charts.load('current', {'packages':['corechart']});
+			  google.charts.setOnLoadCallback(drawChart);
+
+			  function drawChart() {
+
+				var data = google.visualization.arrayToDataTable([
+				  ['MIME Type', 'Number of Bytes'],
+				  ['html',     parseInt(document.getElementById('html_bytes').textContent)],
+				  ['js',      parseInt(document.getElementById('js_bytes').textContent)],
+				  ['css',  parseInt(document.getElementById('css_bytes').textContent)],
+				  ['image', parseInt(document.getElementById('image_bytes').textContent)],
+				  ['flash',    parseInt(document.getElementById('flash_bytes').textContent)],
+				  ['font',    parseInt(document.getElementById('font_bytes').textContent)],
+				  ['video',    parseInt(document.getElementById('video_bytes').textContent)],
+				  ['other',    parseInt(document.getElementById('other_bytes').textContent)]
+				]);
+
+				var options = {
+				  title: 'Weight by Resource type (Adblock)',
+				  is3D: 'true',
+				  pieSliceText: 'value',
+				};
+
+				var chart = new google.visualization.PieChart(document.getElementById('piechart_bytes'));
+
+				chart.draw(data, options);
+			}
+		  </script>
+		  <script>
+			  google.charts.load('current', {'packages':['corechart']});
+			  google.charts.setOnLoadCallback(drawChart);
+
+			  function drawChart() {
+
+				var data = google.visualization.arrayToDataTable([
+				  ['MIME Type', 'Number of Bytes'],
+				  ['html',     parseInt(document.getElementById('html_bytes_ad').textContent)],
+				  ['js',      parseInt(document.getElementById('js_bytes_ad').textContent)],
+				  ['css',  parseInt(document.getElementById('css_bytes_ad').textContent)],
+				  ['image', parseInt(document.getElementById('image_bytes_ad').textContent)],
+				  ['flash',    parseInt(document.getElementById('flash_bytes_ad').textContent)],
+				  ['font',    parseInt(document.getElementById('font_bytes_ad').textContent)],
+				  ['video',    parseInt(document.getElementById('video_bytes_ad').textContent)],
+				  ['other',    parseInt(document.getElementById('other_bytes_ad').textContent)]
+				]);
+
+				var options = {
+				  title: 'Weight by Resource type (Standard)',
+				  is3D: 'true',
+				  pieSliceText: 'value',
+				};
+
+				var chart = new google.visualization.PieChart(document.getElementById('piechart_bytes_ad'));
+
+				chart.draw(data, options);
+			}
+		  </script>
+     </body>
+</html>
